@@ -15,11 +15,22 @@ const CountriesAndStates = () => {
   const onChangeHandler = () => {
     const c = document.getElementById("Country");
     const code = c.value;
-    const url = 'https://xc-countries-api.fly.dev/api/countries/'+code+'/states/';
-    fetch(url)
-      .then(response => response.json())
-      .then(data => setStates(data))
-      .catch(error => console.error(error));
+    const compareByName = (a,b) => {
+      return ((a.name).localeCompare(b.name));
+    }
+    if (code===""){
+      setStates([]);
+    }
+    else {
+      const url = 'https://xc-countries-api.fly.dev/api/countries/'+code+'/states/';
+      fetch(url)
+        .then(response => response.json())
+        .then(data => setStates(data.sort(compareByName)))
+        .catch(error => console.error(error));
+      
+    }
+
+    
   }
 
 
