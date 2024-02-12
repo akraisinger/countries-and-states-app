@@ -16,20 +16,19 @@ const CountriesAndStates = () => {
 
   useEffect(() => {
     const code = document.getElementById("Country").value;
-    if (code===""){
-      setStates([]);
-    }
-    else {
+    if (code!==""){
       const url = `https://xc-countries-api.fly.dev/api/countries/${code}/states/`;
       fetch(url)
         .then(response => response.json())
         .then(data => setStates(data.sort(compareByName)))
         .catch(error => console.error(error));
-      
     }
-  }, document.getElementById("Country"));
+  }, [states, setStates]);
 
-
+  const onChangeHandler = () => {
+    setStates([])
+  }
+  
   return (
     <div>
       <label> Countries: 
