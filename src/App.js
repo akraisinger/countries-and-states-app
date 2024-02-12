@@ -1,15 +1,15 @@
 import React from 'react';
-
-import CountriesAndStates from './components/Countries-and-States';
+import Countries from './components/Countries';
 
 const App = () => {
     return (
-        <div>
-        <h1>Countries & States</h1>
-        <div>
-          <CountriesAndStates />
-        </div>
-        </div>
+      <div>
+      <h1>Countries & States</h1>
+      <div>
+        <Countries/>
+      </div>
+      </div>
+
     );
 };
 
