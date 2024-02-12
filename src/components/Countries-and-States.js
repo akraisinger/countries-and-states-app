@@ -23,7 +23,7 @@ const CountriesAndStates = () => {
         .then(data => setStates(data.sort(compareByName)))
         .catch(error => console.error(error));
     }
-  }, [states, setStates]);
+  }, [states]);
 
   const onChangeHandler = () => {
     setStates([])
