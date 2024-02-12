@@ -14,9 +14,8 @@ const CountriesAndStates = () => {
       .catch(error => console.error(error));
   }, []);
 
-  const onChangeHandler = () => {
-    const c = document.getElementById("Country");
-    const code = c.value;
+  useEffect(() => {
+    const code = document.getElementById("Country").value;
     if (code===""){
       setStates([]);
     }
@@ -28,9 +27,7 @@ const CountriesAndStates = () => {
         .catch(error => console.error(error));
       
     }
-
-    
-  }
+  }, document.getElementById("Country"));
 
 
   return (
